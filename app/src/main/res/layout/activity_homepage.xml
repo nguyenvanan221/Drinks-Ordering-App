@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <TextView
+            android:id="@+id/tvintro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="70dp"
+            android:text="Hôm nay chúng ta
+            sẽ uống gì?"
+            android:gravity="center"
+            android:textSize="33dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:background="@drawable/botron_edt">
+
+        <EditText
+            android:id="@+id/edtsearch"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center"
+            android:hint="Search"
+            android:textSize="20dp"
+            android:background="@drawable/botron_edt"
+            />
+
+        <ImageView
+            android:id="@+id/imgsearch"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+
+            android:src="@drawable/baseline_search_24"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvcategory"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        tools:listitem="@layout/list_category_item"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvdrinkitem"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"
+        tools:listitem="@layout/list_drinks_item"/>
+
+
+
+<!--    <include layout="@layout/bottom_navigation"/>-->
+
+</LinearLayout>
