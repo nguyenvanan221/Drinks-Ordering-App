@@ -29,7 +29,7 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="115dp"
             android:text="Trà chanh"
-            android:textSize="36dp"
+            android:textSize="36sp"
             android:textStyle="bold"
             android:textColor="@color/black"/>
 
@@ -41,10 +41,12 @@
             android:layout_marginTop="8dp"
             android:layout_below="@+id/tvname"
             android:layout_marginEnd="35dp"
+            android:layout_centerHorizontal="true"
             android:text="descreption ddddddd
             dddddddddddddddddddddddddddđ
             ddddddddddddddđ"
-            android:textSize="16dp"/>
+            android:textSize="16sp"/>
+
 
         <LinearLayout
             android:id="@+id/llayout"
@@ -55,13 +57,14 @@
             android:layout_marginStart="35dp"
             android:layout_marginEnd="35dp"
             android:layout_marginTop="13dp"
+            android:layout_centerHorizontal="true"
             android:layout_below="@+id/tvdes">
 
             <TextView
                 android:id="@+id/btnminus"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 android:text="-"
                 android:textColor="@color/red"
                 android:textStyle="bold"
@@ -75,14 +78,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="1"
-                android:textSize="25dp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/btnplus"
                 android:layout_gravity="center"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 android:text="+"
                 android:textColor="@color/red"
                 android:textStyle="bold"
@@ -96,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:text="100000"
-                android:textSize="23dp" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/tvtypeprice"
@@ -104,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text="VND"
-                android:textSize="23dp" />
+                android:textSize="23sp" />
 
         </LinearLayout>
 
@@ -116,9 +119,10 @@
             android:layout_marginEnd="35dp"
             android:layout_marginTop="20dp"
             android:background= "@drawable/button_bg"
+            android:layout_centerHorizontal="true"
             android:layout_below="@+id/llayout"
             android:text="Add drinks"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
 
     </RelativeLayout>
@@ -135,7 +139,7 @@
         android:id="@+id/imgcart"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/baseline_shopping_cart_24"/>
@@ -144,8 +148,8 @@
         android:id="@+id/imgdrink"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginStart="50dp"
         android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
         android:scaleType="centerInside"
         android:src="@drawable/ca_phe_den_da_transparent" />
 </RelativeLayout>

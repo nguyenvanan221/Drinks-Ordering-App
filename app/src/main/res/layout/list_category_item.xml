@@ -12,7 +12,7 @@
         android:paddingHorizontal="20dp"
         android:paddingVertical="5dp"
         android:text="Popular"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:background="@drawable/botron_edt"/>

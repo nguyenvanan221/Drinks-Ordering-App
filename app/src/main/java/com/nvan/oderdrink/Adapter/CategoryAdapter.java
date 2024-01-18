@@ -22,9 +22,9 @@ import com.nvan.oderdrink.databinding.ListDrinksItemBinding;
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
-    private List<Category> categoryList;
+    private final List<Category> categoryList;
 
-    private Context context;
+    private final Context context;
 
     private int selectedItem = 0;
 
@@ -32,7 +32,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     public interface OnCategoryClickListener {
         void onCategoryClick(Category category);
     }
-
 
     public CategoryAdapter(Context context, List<Category> categoryList) {
         this.categoryList = categoryList;
@@ -49,7 +48,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public CategoryAdapter.CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ListCategoryItemBinding binding = ListCategoryItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        return new CategoryAdapter.CategoryViewHolder(binding);
+        return new CategoryViewHolder(binding);
     }
 
     @Override
@@ -69,7 +68,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             public void onClick(View v) {
                 //listener.onCategoryClick(category);
                 selectedItem = position;
-                Toast.makeText(context, "success", Toast.LENGTH_SHORT).show();
                 notifyDataSetChanged();
             }
         });
@@ -81,7 +79,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         return categoryList.size();
     }
 
-    public class CategoryViewHolder extends RecyclerView.ViewHolder {
+    public static class CategoryViewHolder extends RecyclerView.ViewHolder {
         ListCategoryItemBinding binding;
         public CategoryViewHolder(@NonNull ListCategoryItemBinding binding) {
             super(binding.getRoot());

@@ -3,14 +3,12 @@ package com.nvan.oderdrink;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
-import com.nvan.oderdrink.Activities.CartActivity;
 import com.nvan.oderdrink.Fragment.CartFragment;
+import com.nvan.oderdrink.Fragment.ContactFragment;
 import com.nvan.oderdrink.Fragment.HomePageFragment;
+import com.nvan.oderdrink.Fragment.InforUserFragment;
 import com.nvan.oderdrink.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (getIntent().getBooleanExtra("openCartFragment", false)) {
             getSupportFragmentManager().beginTransaction().replace(binding.fragmentcontainer.getId(), new CartFragment()).commit();
-
         }
     }
 
@@ -47,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.cart:
                     selectedFragment = new CartFragment();
                     break;
+                case R.id.contact:
+                    selectedFragment = new ContactFragment();
+                    break;
+                case R.id.user:
+                    selectedFragment = new InforUserFragment();
             }
 
             if (selectedFragment != null) {

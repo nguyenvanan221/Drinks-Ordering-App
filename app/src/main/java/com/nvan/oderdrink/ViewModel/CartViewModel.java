@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.nvan.oderdrink.Model.Drinks;
 import com.nvan.oderdrink.Model.Order;
 import com.nvan.oderdrink.Repository.CartRepository;

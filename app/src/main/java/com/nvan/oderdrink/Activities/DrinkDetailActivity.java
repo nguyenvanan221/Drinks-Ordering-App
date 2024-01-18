@@ -4,17 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
-import com.nvan.oderdrink.Fragment.CartFragment;
 import com.nvan.oderdrink.MainActivity;
 import com.nvan.oderdrink.Model.Drinks;
-import com.nvan.oderdrink.R;
+import com.nvan.oderdrink.ViewModel.AuthViewModel;
 import com.nvan.oderdrink.ViewModel.CartViewModel;
 import com.nvan.oderdrink.ViewModel.DrinkDetailViewModel;
 import com.nvan.oderdrink.databinding.ActivityDetailDrinksBinding;
@@ -25,8 +23,8 @@ public class DrinkDetailActivity extends AppCompatActivity {
     private ActivityDetailDrinksBinding binding;
     private DrinkDetailViewModel drinkDetailViewModel;
     private CartViewModel cartViewModel;
-
-    private List<Drinks> drinkList;
+    private AuthViewModel authViewModel;
+//    private List<Drinks> drinkList;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,14 +40,15 @@ public class DrinkDetailActivity extends AppCompatActivity {
     }
 
     private void initObserve() {
-        cartViewModel.getMutableDrinkList().observe(this, drinksList -> {
-            drinkList = drinksList;
-        });
+//        cartViewModel.getMutableDrinkList().observe(this, drinksList -> {
+//            drinkList = drinksList;
+//        });
     }
 
     private void initViewModel() {
         drinkDetailViewModel = new ViewModelProvider(this).get(DrinkDetailViewModel.class);
         cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
+        authViewModel = new ViewModelProvider(this).get(AuthViewModel.class);
     }
 
     private void initListener() {
@@ -97,7 +96,7 @@ public class DrinkDetailActivity extends AppCompatActivity {
                 Integer drinkPrice = Integer.parseInt( (String) binding.tvprice.getText() );
                 String drinkImg = getIntent().getStringExtra("drinkImg");
                 Integer quantity = Integer.parseInt( (String) binding.tvquantity.getText() );
-                drinkDetailViewModel.addDrinkToCart(drinkId,drinkName,drinkPrice, drinkImg, quantity);
+                drinkDetailViewModel.addDrinkToCart(drinkId,drinkName,drinkPrice, drinkImg, quantity, authViewModel.getUserId().getValue());
             }
         });
     }

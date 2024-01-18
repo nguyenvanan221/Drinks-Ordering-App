@@ -18,7 +18,7 @@
             android:textSize="28dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:gravity="center"/>
+            android:gravity="center" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvorder"
@@ -31,47 +31,55 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearlay2"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="45dp">
 
-        <TextView
-            android:id="@+id/tvnametotal"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/linearlay2"
+            android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="Tổng tiền"
-            android:textSize="23dp" />
+            android:layout_centerHorizontal="true">
 
-        <TextView
-            android:id="@+id/tvtotalprice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="105dp"
-            android:layout_marginVertical="5dp"
-            android:gravity="center"
-            android:text="10000000"
-            android:textSize="23dp"
-            android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tvnametotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="Tổng tiền"
+                android:textSize="23dp" />
 
-        <TextView
-            android:id="@+id/tvtypetotalprice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginVertical="5dp"
-            android:gravity="center"
-            android:text="VND"
-            android:textSize="23dp"
-            android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tvtotalprice"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginVertical="5dp"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/tvnametotal"
+                android:text="100000000"
+                android:textSize="23dp"
+                android:textStyle="bold"/>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tvtypetotalprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginVertical="5dp"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/tvtotalprice"
+                android:text="VND"
+                android:textSize="23dp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/btnadd"
@@ -81,7 +89,6 @@
         android:layout_marginEnd="50dp"
         android:layout_marginTop="20dp"
         android:background= "@drawable/button_bg"
-
         android:text="Đặt hàng"
         android:textSize="20dp"
         android:textColor="@color/white"/>

@@ -19,9 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.DrinkViewHolder> {
-    private List<Drinks> drinksList;
+    private final List<Drinks> drinksList;
 
-    private Context context;
+    private final Context context;
 
     public DrinkAdapter(Context context, List<Drinks> drinksList) {
         this.drinksList = drinksList;
@@ -54,7 +54,6 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.DrinkViewHol
                 intent.putExtra("drinkDescreoption", drink.getDescreption());
 
                 v.getContext().startActivity(intent);
-                Toast.makeText(context, (CharSequence) drink.getCategory(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -64,7 +63,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.DrinkViewHol
         return drinksList.size();
     }
 
-    public class DrinkViewHolder extends RecyclerView.ViewHolder {
+    public static class DrinkViewHolder extends RecyclerView.ViewHolder {
         ListDrinksItemBinding binding;
         public DrinkViewHolder(@NonNull ListDrinksItemBinding binding) {
             super(binding.getRoot());

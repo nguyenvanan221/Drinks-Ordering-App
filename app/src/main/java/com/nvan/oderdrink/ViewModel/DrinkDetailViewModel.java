@@ -22,9 +22,9 @@ public class DrinkDetailViewModel extends ViewModel {
         cartRepository = new CartRepository();
     }
 
-    public void addDrinkToCart(String drinkId, String drinkName, int drinkPrice, String drinkImg, int quantity){
+    public void addDrinkToCart(String drinkId, String drinkName, int drinkPrice, String drinkImg, int quantity, String userId){
         Drinks drink = new Drinks(drinkId, drinkName, drinkPrice, drinkImg, quantity);
-        cartRepository.addToCart(drink);
+        cartRepository.addToCart(drink, userId);
     }
 
 }

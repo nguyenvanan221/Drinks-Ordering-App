@@ -16,8 +16,8 @@
         android:icon="@drawable/contact_book"
         android:title="Liên hệ"/>
     <item
-        android:id="@+id/history"
+        android:id="@+id/user"
         android:enabled="true"
-        android:icon="@drawable/history"
-        android:title="Lịch sử"/>
+        android:icon="@drawable/user"
+        android:title="Tài khoản"/>
 </menu>

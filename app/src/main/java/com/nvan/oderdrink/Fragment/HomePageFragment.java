@@ -1,11 +1,13 @@
 package com.nvan.oderdrink.Fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +17,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.nvan.oderdrink.Activities.HomepageActivity;
 import com.nvan.oderdrink.Adapter.CategoryAdapter;
 import com.nvan.oderdrink.Adapter.DrinkAdapter;
 import com.nvan.oderdrink.Model.Category;
@@ -49,6 +50,10 @@ public class HomePageFragment extends Fragment {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE){
+//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//                    if (imm != null) {
+//                        imm.hideSoftInputFromWindow(binding.edtsearch.getWindowToken(), 0);
+//                    }
                     return true;
                 }
                 return false;

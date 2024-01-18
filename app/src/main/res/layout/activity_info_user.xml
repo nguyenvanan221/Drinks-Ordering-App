@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="Name"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/tvname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/llayout1">
+
+        <TextView
+            android:id="@+id/tvinfor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thông tin tài khoản"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tvhistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvinfor"
+            android:layout_marginTop="20dp"
+            android:text="Lịch sử mua hàng"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/llayout1"
+        android:layout_centerHorizontal="true"
+        android:text="Đăng xuất"/>
+</RelativeLayout>

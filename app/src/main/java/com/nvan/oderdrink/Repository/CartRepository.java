@@ -23,7 +23,8 @@ public class CartRepository {
     private DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("Cart");
     private DatabaseReference orderRef = FirebaseDatabase.getInstance().getReference("Orders");
 
-    public void addToCart(Drinks drink) {
+    public void addToCart(Drinks drink, String userId) {
+//        cartRef.child(userId).child(drink.getId())
         cartRef.child(drink.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -33,6 +34,7 @@ public class CartRepository {
                     cartRef.child(drink.getId()).child("quantity").setValue(currentQuantity + drink.getQuantity());
                 } else {
                     cartRef.child(drink.getId()).setValue(drink);
+//                    cartRef.child(userId).child(drink.getId()).setValue(drink);
                 }
             }
 
