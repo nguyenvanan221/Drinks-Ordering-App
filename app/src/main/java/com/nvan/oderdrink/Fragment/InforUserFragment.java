@@ -1,5 +1,6 @@
 package com.nvan.oderdrink.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.nvan.oderdrink.Login;
 import com.nvan.oderdrink.databinding.ActivityInfoUserBinding;
 
 public class InforUserFragment extends Fragment {
@@ -27,6 +30,10 @@ public class InforUserFragment extends Fragment {
         binding.btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(this, Login.class);
+                startActivity(intent);
+                finish();
 
             }
         });
@@ -35,6 +42,7 @@ public class InforUserFragment extends Fragment {
         binding.tvinfor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
             }
         });
