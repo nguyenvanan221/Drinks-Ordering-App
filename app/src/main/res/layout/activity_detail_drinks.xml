@@ -14,12 +14,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="430dp"
-        android:layout_marginBottom="28dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="380dp"
+        android:layout_marginTop="235dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_alignParentBottom="true"
         android:background="@drawable/botron_layout">
 
         <TextView
@@ -27,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="115dp"
+            android:layout_marginTop="90dp"
             android:text="Trà chanh"
             android:textSize="36sp"
             android:textStyle="bold"
@@ -38,13 +36,11 @@
             android:layout_width="match_parent"
             android:layout_height="95dp"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:layout_below="@+id/tvname"
             android:layout_marginEnd="35dp"
             android:layout_centerHorizontal="true"
-            android:text="descreption ddddddd
-            dddddddddddddddddddddddddddđ
-            ddddddddddddddđ"
+            android:text=""
             android:textSize="16sp"/>
 
 
@@ -117,7 +113,7 @@
             android:layout_height="53dp"
             android:layout_marginStart="35dp"
             android:layout_marginEnd="35dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background= "@drawable/button_bg"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/llayout"
@@ -146,9 +142,9 @@
 
     <ImageView
         android:id="@+id/imgdrink"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="45dp"
         android:layout_centerHorizontal="true"
         android:scaleType="centerInside"
         android:src="@drawable/ca_phe_den_da_transparent" />
