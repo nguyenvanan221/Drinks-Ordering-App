@@ -19,7 +19,7 @@ public class AuthViewModel extends ViewModel {
         return userId;
     }
 
-    private void updateUserId() {
+    public void updateUserId() {
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null) {
             userId.setValue(user.getUid());

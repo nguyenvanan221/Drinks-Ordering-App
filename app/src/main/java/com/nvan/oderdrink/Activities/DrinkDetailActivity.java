@@ -35,7 +35,7 @@ public class DrinkDetailActivity extends AppCompatActivity {
         initListener();
         initObserve();
 
-        cartViewModel.loadDrinkToCart();
+        //cartViewModel.loadDrinkToCart(authViewModel.getUserId().getValue());
 
     }
 

@@ -49,7 +49,7 @@ public class CartFragment extends Fragment {
         initViews();
         initListener();
 
-        cartViewModel.loadDrinkToCart();
+        cartViewModel.loadDrinkToCart(authViewModel.getUserId().getValue());
 
         return view;
     }
@@ -60,8 +60,9 @@ public class CartFragment extends Fragment {
         binding.btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Log.d("Cart frag", "dat hang");
+
                 showBottomDialog();
+
             }
         });
 
@@ -109,7 +110,6 @@ public class CartFragment extends Fragment {
     }
 
     public void showBottomDialog(){
-        String shippingAddress = addressBinding.edtaddress.getText().toString();
 
         final Dialog dialog = new Dialog(this.getContext(),
                 android.R.style.Theme_Translucent_NoTitleBar);
@@ -126,10 +126,11 @@ public class CartFragment extends Fragment {
         addressBinding.btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                cartViewModel.placeOrder(cartViewModel.getMutableDrinkList().getValue(), cartViewModel.getTotal().getValue(),
-//                        shippingAddress, authViewModel.getUserId().getValue());
+                String shippingAddress = addressBinding.edtaddress.getText().toString();
+                cartViewModel.placeOrder(cartViewModel.getMutableDrinkList().getValue(), cartViewModel.getTotal().getValue(),
+                        shippingAddress, authViewModel.getUserId().getValue());
                 Log.d("Cart frag", "dat hang");
-                // rv cart o day
+
                 dialog.dismiss();
             }
         });

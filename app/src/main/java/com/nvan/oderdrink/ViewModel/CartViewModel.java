@@ -31,8 +31,8 @@ public class CartViewModel extends ViewModel {
     public CartViewModel() {
         total.setValue(0);
     }
-    public void loadDrinkToCart(){
-        cartRepository.getDrinks(new CartRepository.OnGetDrinkListener() {
+    public void loadDrinkToCart(String userId){
+        cartRepository.getDrinks(userId, new CartRepository.OnGetDrinkListener() {
             @Override
             public void onGetDrinkSucces(List<Drinks> drinkList) {
                 mutableDrinkList.setValue(drinkList);
@@ -50,7 +50,7 @@ public class CartViewModel extends ViewModel {
         });
     }
 
-    public void removeDrinkFromCart(String drinkId, Context context){
+    public void removeDrinkFromCart(String userId, String drinkId, Context context){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Xác nhận xóa");
         builder.setMessage("Bạn có chắc muốn xóa sản phẩm khỏi giỏ hàng?");
@@ -61,7 +61,7 @@ public class CartViewModel extends ViewModel {
             public void onClick(DialogInterface dialog, int which) {
                 cartRepository.removeFromCart(drinkId);
 
-                loadDrinkToCart();
+                loadDrinkToCart(userId);
             }
         });
 

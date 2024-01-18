@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.nvan.oderdrink.Model.Drinks;
+import com.nvan.oderdrink.ViewModel.AuthViewModel;
 import com.nvan.oderdrink.ViewModel.CartViewModel;
 import com.nvan.oderdrink.databinding.ListOrderDrinkItemBinding;
 
@@ -21,6 +22,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     private final List<Drinks> drinkList;
     private final Context context;
     private final CartViewModel cartViewModel;
+    private AuthViewModel authViewModel;
 
     public CartAdapter(Context context, List<Drinks> drinkList, CartViewModel cartViewModel) {
         this.drinkList = drinkList;
@@ -54,7 +56,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 cartViewModel.increaseQuantity(drink);
                 Log.d("cart", "click plus" );
             }
-
         });
 
         holder.binding.btnminus.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +65,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 int temp = Integer.parseInt( (String) holder.binding.tvquantity.getText() );
                 temp = temp - 1;
                 if (temp <= 0 ) {
-                    cartViewModel.removeDrinkFromCart(drink.getId(), context);
+                    cartViewModel.removeDrinkFromCart(authViewModel.getUserId().getValue(), drink.getId(), context);
                     return;
                 }
 
@@ -72,7 +73,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 Log.d("cart", "click minus" );
             }
         });
-
 
     }
 

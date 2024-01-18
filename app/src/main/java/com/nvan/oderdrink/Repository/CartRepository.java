@@ -24,8 +24,7 @@ public class CartRepository {
     private DatabaseReference orderRef = FirebaseDatabase.getInstance().getReference("Orders");
 
     public void addToCart(Drinks drink, String userId) {
-//        cartRef.child(userId).child(drink.getId())
-        cartRef.child(drink.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
+        cartRef.child(userId).child(drink.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // ton tai trong gio
@@ -33,8 +32,7 @@ public class CartRepository {
                     int currentQuantity = dataSnapshot.child("quantity").getValue(Integer.class);
                     cartRef.child(drink.getId()).child("quantity").setValue(currentQuantity + drink.getQuantity());
                 } else {
-                    cartRef.child(drink.getId()).setValue(drink);
-//                    cartRef.child(userId).child(drink.getId()).setValue(drink);
+                    cartRef.child(userId).child(drink.getId()).setValue(drink);
                 }
             }
 
@@ -71,8 +69,8 @@ public class CartRepository {
         });
     }
 
-    public void getDrinks(OnGetDrinkListener listener){
-        cartRef.addListenerForSingleValueEvent(new ValueEventListener() {
+    public void getDrinks(String userId, OnGetDrinkListener listener){
+        cartRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Integer totalPrice = 0;

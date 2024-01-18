@@ -39,11 +39,10 @@ public class profile extends Fragment {
         mview = inflater.inflate(R.layout.fragment_profile,container,false);
         prname = mview.findViewById(R.id.prName);
         praddress = mview.findViewById(R.id.prAddress);
-        pravatar = mview.findViewById(R.id.prAvatar);
         premail = mview.findViewById(R.id.prEmail);
         prphone = mview.findViewById(R.id.prPhone);
         prsave = mview.findViewById(R.id.prSave);
-        setUserimg();
+        //setUserimg();
         readdatabase();
         prsave.setOnClickListener(new View.OnClickListener() {
             @Override
