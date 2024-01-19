@@ -20,8 +20,8 @@ import java.util.List;
 import java.util.Map;
 
 public class CartRepository {
-    private DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("Cart");
-    private DatabaseReference orderRef = FirebaseDatabase.getInstance().getReference("Orders");
+    private final DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("Cart");
+    private final DatabaseReference orderRef = FirebaseDatabase.getInstance().getReference("Orders");
 
     public void addToCart(Drinks drink, String userId) {
         cartRef.child(userId).child(drink.getId()).addListenerForSingleValueEvent(new ValueEventListener() {

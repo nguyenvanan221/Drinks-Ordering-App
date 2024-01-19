@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.nvan.oderdrink.Activities.OrderHistoryActivity;
 import com.nvan.oderdrink.Login;
 import com.nvan.oderdrink.MainActivity;
 import com.nvan.oderdrink.ViewModel.AuthViewModel;
@@ -64,7 +65,8 @@ public class InforUserFragment extends Fragment {
         binding.tvhistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(requireContext(), OrderHistoryActivity.class);
+                startActivity(intent);
             }
         });
     }
