@@ -33,16 +33,7 @@ public class DrinkDetailActivity extends AppCompatActivity {
         initViewModel();
         getDataIntent();
         initListener();
-        initObserve();
 
-        //cartViewModel.loadDrinkToCart(authViewModel.getUserId().getValue());
-
-    }
-
-    private void initObserve() {
-//        cartViewModel.getMutableDrinkList().observe(this, drinksList -> {
-//            drinkList = drinksList;
-//        });
     }
 
     private void initViewModel() {

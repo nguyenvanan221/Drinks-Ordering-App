@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         if (getIntent().getBooleanExtra("openCartFragment", false)) {
             getSupportFragmentManager().beginTransaction().replace(binding.fragmentcontainer.getId(), new CartFragment()).commit();
         }
+        if (getIntent().getBooleanExtra("openInforFragment", false)) {
+            getSupportFragmentManager().beginTransaction().replace(binding.fragmentcontainer.getId(), new InforUserFragment()).commit();
+        }
     }
 
     private void initBinding() {
