@@ -30,10 +30,9 @@ public class InforUserFragment extends Fragment {
         binding.btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(this, Login.class);
-                startActivity(intent);
-                finish();
+//                FirebaseAuth.getInstance().signOut();
+//                Intent intent = new Intent(this, Login.class);
+//                startActivity(intent);
 
             }
         });
