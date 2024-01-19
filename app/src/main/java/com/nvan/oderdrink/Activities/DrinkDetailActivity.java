@@ -22,9 +22,7 @@ import java.util.List;
 public class DrinkDetailActivity extends AppCompatActivity {
     private ActivityDetailDrinksBinding binding;
     private DrinkDetailViewModel drinkDetailViewModel;
-    private CartViewModel cartViewModel;
     private AuthViewModel authViewModel;
-//    private List<Drinks> drinkList;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +36,6 @@ public class DrinkDetailActivity extends AppCompatActivity {
 
     private void initViewModel() {
         drinkDetailViewModel = new ViewModelProvider(this).get(DrinkDetailViewModel.class);
-        cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
         authViewModel = new ViewModelProvider(this).get(AuthViewModel.class);
     }
 

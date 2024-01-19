@@ -39,26 +39,9 @@ public class HomePageFragment extends Fragment {
         initViewModel();
         initObserve();
         initViews();
-        initListener();
 
         categoryViewModel.loadData();
         return view;
-    }
-
-    private void initListener() {
-        binding.edtsearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE){
-//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//                    if (imm != null) {
-//                        imm.hideSoftInputFromWindow(binding.edtsearch.getWindowToken(), 0);
-//                    }
-                    return true;
-                }
-                return false;
-            }
-        });
     }
 
     private void initViews() {

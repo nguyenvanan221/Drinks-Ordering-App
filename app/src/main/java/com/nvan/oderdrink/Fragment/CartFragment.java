@@ -1,34 +1,26 @@
 package com.nvan.oderdrink.Fragment;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
-import android.widget.TextView;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
+
 import com.nvan.oderdrink.Adapter.CartAdapter;
-import com.nvan.oderdrink.R;
 import com.nvan.oderdrink.ViewModel.AuthViewModel;
 import com.nvan.oderdrink.ViewModel.CartViewModel;
 import com.nvan.oderdrink.databinding.ActivityListOrderBinding;
@@ -55,8 +47,6 @@ public class CartFragment extends Fragment {
     }
 
     private void initListener() {
-        String shippingAddress = "ha noi";
-        String userId = "1";
         binding.btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,15 +56,13 @@ public class CartFragment extends Fragment {
             }
         });
 
-        addressBinding.edtaddress.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        addressBinding.edtaddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE || (event != null && event.getAction() == KeyEvent.ACTION_DOWN &&
-                        event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
-                    //addressBinding.edtaddress.clearFocus();
-                    return true;
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (! hasFocus){
+                    InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(addressBinding.edtaddress.getWindowToken(), 0);
                 }
-                return false;
             }
         });
     }
