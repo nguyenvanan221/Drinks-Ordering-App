@@ -24,10 +24,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     private final CartViewModel cartViewModel;
     private AuthViewModel authViewModel;
 
-    public CartAdapter(Context context, List<Drinks> drinkList, CartViewModel cartViewModel) {
+    public CartAdapter(Context context, List<Drinks> drinkList, CartViewModel cartViewModel, AuthViewModel authViewModel) {
         this.drinkList = drinkList;
         this.context = context;
         this.cartViewModel = cartViewModel;
+        this.authViewModel = authViewModel;
     }
 
     @NonNull
@@ -52,8 +53,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
                 int temp = Integer.parseInt( (String) holder.binding.tvquantity.getText() );
                 temp = temp + 1;
+                cartViewModel.increaseQuantity(authViewModel.getUserId().getValue(), drink);
                 holder.binding.tvquantity.setText(Integer.toString(temp));
-                cartViewModel.increaseQuantity(drink);
                 Log.d("cart", "click plus" );
             }
         });
@@ -61,13 +62,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.binding.btnminus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cartViewModel.decreaseQuantity(drink);
                 int temp = Integer.parseInt( (String) holder.binding.tvquantity.getText() );
                 temp = temp - 1;
                 if (temp <= 0 ) {
                     cartViewModel.removeDrinkFromCart(authViewModel.getUserId().getValue(), drink.getId(), context);
                     return;
                 }
+                else cartViewModel.decreaseQuantity(authViewModel.getUserId().getValue(), drink);
 
                 holder.binding.tvquantity.setText(Integer.toString(temp));
                 Log.d("cart", "click minus" );

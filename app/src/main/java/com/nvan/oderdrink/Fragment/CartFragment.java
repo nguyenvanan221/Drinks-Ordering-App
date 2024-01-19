@@ -85,7 +85,7 @@ public class CartFragment extends Fragment {
 
     private void initObserve() {
         cartViewModel.getMutableDrinkList().observe(this.getViewLifecycleOwner(), drinkList-> {
-            CartAdapter cartAdapter = new CartAdapter(this.getContext(), drinkList, cartViewModel);
+            CartAdapter cartAdapter = new CartAdapter(this.getContext(), drinkList, cartViewModel, authViewModel);
             binding.rcvorder.setAdapter(cartAdapter);
         });
 
@@ -128,7 +128,7 @@ public class CartFragment extends Fragment {
             public void onClick(View v) {
                 String shippingAddress = addressBinding.edtaddress.getText().toString();
                 cartViewModel.placeOrder(cartViewModel.getMutableDrinkList().getValue(), cartViewModel.getTotal().getValue(),
-                        shippingAddress, authViewModel.getUserId().getValue());
+                        shippingAddress, authViewModel.getUserId().getValue(), requireContext());
                 Log.d("Cart frag", "dat hang");
 
                 dialog.dismiss();
@@ -141,6 +141,8 @@ public class CartFragment extends Fragment {
                 dialog.dismiss();
             }
         });
+
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
         dialog.show();
     }

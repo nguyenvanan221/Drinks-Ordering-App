@@ -96,7 +96,8 @@ public class DrinkDetailActivity extends AppCompatActivity {
                 Integer drinkPrice = Integer.parseInt( (String) binding.tvprice.getText() );
                 String drinkImg = getIntent().getStringExtra("drinkImg");
                 Integer quantity = Integer.parseInt( (String) binding.tvquantity.getText() );
-                drinkDetailViewModel.addDrinkToCart(drinkId,drinkName,drinkPrice, drinkImg, quantity, authViewModel.getUserId().getValue());
+                drinkDetailViewModel.addDrinkToCart(drinkId,drinkName,drinkPrice, drinkImg, quantity,
+                        authViewModel.getUserId().getValue(), DrinkDetailActivity.this);
             }
         });
     }

@@ -43,6 +43,13 @@ public class profile extends Fragment {
         prphone = mview.findViewById(R.id.prPhone);
         prsave = mview.findViewById(R.id.prSave);
         //setUserimg();
+
+//        pravatar = mview.findViewById(R.id.prAvatar);
+        premail = mview.findViewById(R.id.prEmail);
+        prphone = mview.findViewById(R.id.prPhone);
+        prsave = mview.findViewById(R.id.prSave);
+//        setUserimg();
+
         readdatabase();
         prsave.setOnClickListener(new View.OnClickListener() {
             @Override

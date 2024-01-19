@@ -59,7 +59,7 @@ public class CartViewModel extends ViewModel {
         builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                cartRepository.removeFromCart(drinkId);
+                cartRepository.removeFromCart(userId, drinkId);
 
                 loadDrinkToCart(userId);
             }
@@ -88,18 +88,18 @@ public class CartViewModel extends ViewModel {
         return total;
     }
 
-    public void increaseQuantity(Drinks drink) {
-        cartRepository.updateQuantity(drink.getId(), 1);
+    public void increaseQuantity(String userId, Drinks drink) {
+        cartRepository.updateQuantity(userId, drink.getId(), 1);
 
         total.setValue(total.getValue() + drink.getPrice());
     }
 
-    public void decreaseQuantity(Drinks drink) {
-        cartRepository.updateQuantity(drink.getId(), -1);
+    public void decreaseQuantity(String userId, Drinks drink) {
+        cartRepository.updateQuantity(userId, drink.getId(), -1);
         total.setValue(total.getValue() - drink.getPrice());
     }
 
-    public void placeOrder(List<Drinks> drinkList, int totalPrice, String shippingAddress, String userId) {
+    public void placeOrder(List<Drinks> drinkList, int totalPrice, String shippingAddress, String userId, Context context) {
         Order order = new Order();
         order.setDrinksList(drinkList);
         order.setTotal(totalPrice);
@@ -110,15 +110,44 @@ public class CartViewModel extends ViewModel {
         cartRepository.placeOrder(order, userId, new CartRepository.OnOrderPlacedListener() {
             @Override
             public void onOrderPlaced() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Thông báo");
+                builder.setMessage("Đặt hàng thành công! Cảm ơn bạn.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
                 Log.d("Cart view", "Dat hang thanh cong");
             }
 
             @Override
             public void onError(String errorMessage) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Thông báo");
+                builder.setMessage("Đặt hàng thất bại do có lỗi xảy ra. Vui lòng thử lại sau.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
                 Log.d("Cart view", "Dat hang that bai");
             }
         });
-       
+
+        RemoveCart(userId);
+        loadDrinkToCart(userId);
+
+    }
+
+    public void RemoveCart(String userId){
+        cartRepository.remmoveCart(userId);
     }
 
     public static String getCurrentDateTime() {

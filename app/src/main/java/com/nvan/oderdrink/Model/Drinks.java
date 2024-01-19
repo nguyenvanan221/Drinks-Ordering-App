@@ -1,6 +1,10 @@
 package com.nvan.oderdrink.Model;
 
-public class Drinks {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+
+public class Drinks implements Parcelable {
 
     private String category;
     private String id;
@@ -37,6 +41,14 @@ public class Drinks {
         this.price = price;
         this.image = image;
         this.quantity = quantity;
+    }
+    public Drinks(String name,String id, String image, int price,String category, String descreption) {
+        this.name = name;
+        this.id = id;
+        this.image = image;
+        this.price = price;
+        this.category = category;
+        this.descreption = descreption;
     }
 
     public String getId() {
@@ -93,5 +105,40 @@ public class Drinks {
 
     public void setDescreption(String descreption) {
         this.descreption = descreption;
+    }
+    protected Drinks(Parcel in) {
+        name = in.readString();
+        id = in.readString();
+        image = in.readString();
+        price = in.readInt();
+        category = in.readString();
+        descreption = in.readString();
+    }
+
+    public static final Creator<Drinks> CREATOR = new Creator<Drinks>() {
+        @Override
+        public Drinks createFromParcel(Parcel in) {
+            return new Drinks(in);
+        }
+
+        @Override
+        public Drinks[] newArray(int size) {
+            return new Drinks[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(id);
+        dest.writeString(image);
+        dest.writeInt(price);
+        dest.writeString(category);
+        dest.writeString(descreption);
     }
 }

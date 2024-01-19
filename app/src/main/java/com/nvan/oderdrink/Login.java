@@ -21,6 +21,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.nvan.oderdrink.ViewModel.AuthViewModel;
+import com.nvan.oderdrink.Product.ProductActivity;
+
 
 public class Login extends AppCompatActivity {
 
@@ -63,7 +65,7 @@ public class Login extends AppCompatActivity {
         String strPassword = passwordlogin.getText().toString().trim();
         if (strEmail.equals("admin113@gmail.com") && strPassword.equals("zx123456")) {
             // Đăng nhập thành công với tài khoản admin
-            Intent intent = new Intent(Login.this, AdminActivity.class);
+            Intent intent = new Intent(Login.this, ProductActivity.class);
             startActivity(intent);
             finishAffinity();
             return;

@@ -30,7 +30,7 @@ public class CartRepository {
                 // ton tai trong gio
                 if (dataSnapshot.exists()) {
                     int currentQuantity = dataSnapshot.child("quantity").getValue(Integer.class);
-                    cartRef.child(drink.getId()).child("quantity").setValue(currentQuantity + drink.getQuantity());
+                    cartRef.child(userId).child(drink.getId()).child("quantity").setValue(currentQuantity + drink.getQuantity());
                 } else {
                     cartRef.child(userId).child(drink.getId()).setValue(drink);
                 }
@@ -43,13 +43,17 @@ public class CartRepository {
         });
     }
 
-    public void removeFromCart(String drinkId) {
-        cartRef.child(drinkId).removeValue();
+    public void removeFromCart(String userId, String drinkId) {
+        cartRef.child(userId).child(drinkId).removeValue();
     }
 
-    public void updateQuantity(String drinkId, int quantityChange) {
+    public void remmoveCart(String userId){
+        cartRef.child(userId).removeValue();
+    }
 
-        cartRef.child(drinkId).addListenerForSingleValueEvent(new ValueEventListener() {
+    public void updateQuantity(String userId, String drinkId, int quantityChange) {
+
+        cartRef.child(userId).child(drinkId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -57,7 +61,7 @@ public class CartRepository {
                     int newQuantity = currentQuantity + quantityChange;
 
                     if (newQuantity >= 0) {
-                        cartRef.child(drinkId).child("quantity").setValue(newQuantity);
+                        cartRef.child(userId).child(drinkId).child("quantity").setValue(newQuantity);
                     }
                 }
             }
@@ -130,10 +134,6 @@ public class CartRepository {
             }
         });
 
-        // Xóa toàn bộ giỏ hàng sau khi đặt hàng
-        //cartRef.removeValue();
-
-        //listener.onOrderPlaced();
     }
 
     public interface OnGetDrinkListener {

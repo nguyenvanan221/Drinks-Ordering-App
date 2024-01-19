@@ -43,6 +43,10 @@ public class InforUserFragment extends Fragment {
                 Intent intent = new Intent(getContext(), Login.class);
                 startActivity(intent);
                 authViewModel.getUserId().setValue(null);
+//                FirebaseAuth.getInstance().signOut();
+//                Intent intent = new Intent(this, Login.class);
+//                startActivity(intent);
+
             }
         });
 
