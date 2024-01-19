@@ -7,7 +7,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:id="@+id/llayout1">
+        android:id="@+id/llayout1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/header" >
 
         <TextView
             android:id="@+id/tvname"
@@ -15,7 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
-            android:text="Name"
+            android:text="WELLCOME"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -30,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:text="Thông tin tài khoản"
         android:textSize="20sp"
-        android:background="@drawable/botron_layout_btn2"/>
+        android:background="@drawable/textbox"/>
 
     <TextView
         android:id="@+id/tvhistory"
@@ -39,7 +43,7 @@
         android:layout_below="@+id/tvinfor"
         android:layout_centerInParent="true"
         android:layout_marginTop="50dp"
-        android:background="@drawable/botron_layout_btn2"
+        android:background="@drawable/textbox"
         android:text="Lịch sử mua hàng"
         android:textSize="20sp" />
 
@@ -51,6 +55,7 @@
         android:layout_marginTop="50dp"
         android:layout_below="@+id/tvhistory"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/textbox"
         android:text="Đăng xuất"
-        android:background="@color/grey"/>
+        />
 </RelativeLayout>

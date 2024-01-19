@@ -19,26 +19,27 @@
             android:textSize="40dp"
             android:textColor="#fff"
             android:textStyle="bold"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="30dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đặng nhập để tiếp tục"
             android:textColor="#fbc02d"
             android:textStyle="bold"
-            android:textSize="19dp" />
+            android:layout_marginTop="20dp"
+            android:textSize="20dp" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Đăng nhập"
-        android:textSize="35dp"
-        android:textStyle="bold"
-        android:textColor="#ad168b"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="35dp" />
+        android:text="Đăng nhập"
+        android:textColor="@color/red"
+        android:textSize="35dp"
+        android:textStyle="bold" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,7 +47,7 @@
         android:textSize="18dp"
         android:textStyle="bold"
         android:textColor="#000"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="40dp"/>
     <EditText
         android:id="@+id/userName"
@@ -64,7 +65,7 @@
         android:textSize="18dp"
         android:textStyle="bold"
         android:textColor="#000"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="40dp"/>
     <EditText
         android:id="@+id/passWord"
@@ -94,7 +95,7 @@
         android:layout_height="wrap_content"
         android:text="Bạn chưa có tài khoản? Đăng ký"
         android:textSize="18dp"
-        android:textColor="#ad168b"
+        android:textColor="@color/red"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_marginTop="20dp" />
