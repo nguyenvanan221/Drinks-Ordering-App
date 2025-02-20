@@ -1,5 +1,5 @@
-# Order Drinks 
-Order Drinks is an application that allows you order drinks
+# Drinks Ordering 
+Drinks Ordering  is an application that allows you order drinks
 ## Features
 <ul>
   <li>
